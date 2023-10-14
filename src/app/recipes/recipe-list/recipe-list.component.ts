@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -11,6 +11,11 @@ export class RecipeListComponent implements OnInit{
     throw new Error('Method not implemented.');
   }
 
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
+  onRecipeSelected(recipe:Recipe) {
+    this.recipeWasSelected.emit(recipe);
+  }
   recipes: Recipe[] = [
     new Recipe('test','thid is test','https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg'),
     new Recipe('test','thid is test','https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg')
