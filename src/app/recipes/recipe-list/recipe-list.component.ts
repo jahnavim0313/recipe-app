@@ -18,6 +18,6 @@ export class RecipeListComponent implements OnInit{
   }
   recipes: Recipe[] = [
     new Recipe('test','thid is test','https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg'),
-    new Recipe('test','thid is test','https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg')
+    new Recipe('test','thid is another test','https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg')
   ];
 }

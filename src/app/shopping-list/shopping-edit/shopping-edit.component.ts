@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,Output,ViewChild,ElementRef,EventEmitter } from '@angular/core';
+import { Ingredient } from 'src/app/shared/ingredient.model';
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent {
+export class ShoppingEditComponent implements OnInit{
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+  @ViewChild('nameInput',{static:false}) nameInputRef:ElementRef;
+  @ViewChild('amountInput',{static:false}) amountInputRef:ElementRef;
+  @Output() ingredientAdded = new EventEmitter<Ingredient>();
 
+  onAddItem() {
+    const ingName = this.nameInputRef.nativeElement.value;
+    const ingAmount = this.amountInputRef.nativeElement.value;
+    const newIngredient = new Ingredient(ingName,ingAmount)
+    this.ingredientAdded.emit(newIngredient);
+  }
 }
